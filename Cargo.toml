@@ -1,11 +1,11 @@
 [package]
 name = "hash-db-impl-vsdb"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
-keywords = ["mpt", "trie", "database", "blockchian"]
+keywords = ["mpt", "trie", "database", "blockchain"]
 license = "MIT"
 authors = ["hui.fan@mail.ru"]
-description = "An implementation of the `HashDB` trait"
+description = "An implementation of the `hash_db::HashDB` trait"
 homepage = "https://github.com/rust-util-collections/hash-db-impl-vsdb"
 repository = "https://github.com/rust-util-collections/hash-db-impl-vsdb"
 
