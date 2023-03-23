@@ -2,6 +2,12 @@
 name = "hash-db-impl-vsdb"
 version = "0.1.0"
 edition = "2021"
+keywords = ["mpt", "trie", "database", "blockchian"]
+license = "MIT"
+authors = ["hui.fan@mail.ru"]
+description = "An implementation of the `HashDB` trait"
+homepage = "https://github.com/rust-util-collections/hash-db-impl-vsdb"
+repository = "https://github.com/rust-util-collections/hash-db-impl-vsdb"
 
 [dependencies]
 sp-trie = "19.0.0"
