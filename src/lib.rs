@@ -64,6 +64,15 @@ where
     pub fn get_cache_hdr(&self) -> Option<&SharedCache> {
         self.cache.as_ref().map(|c| &c.0)
     }
+
+    pub fn reset_cache(&mut self, size: Option<usize>) {
+        if let Some(n) = size {
+            let siz = CacheSize::new(n);
+            self.cache.replace((SharedCache::new(siz), n));
+        } else {
+            self.cache.take();
+        }
+    }
 }
 
 impl<H, T> HashDB<H, T> for VsBackend<H, T>
