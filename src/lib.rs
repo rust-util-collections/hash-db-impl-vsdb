@@ -1,3 +1,6 @@
+pub use hash_db as sp_hash_db;
+pub use sp_trie_db;
+
 use hash_db::{AsHashDB, HashDB, HashDBRef, Hasher as KeyHasher, Prefix};
 use ruc::*;
 use serde::{Deserialize, Serialize};

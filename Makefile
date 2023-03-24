@@ -6,8 +6,8 @@ fmt:
 lint:
 	cargo clippy --workspace
 	cargo clippy --workspace --tests
-	# cargo clippy --workspace --examples
-	# cargo clippy --workspace --features="benchmark"
+	@ # cargo clippy --workspace --examples
+	@ # cargo clippy --workspace --features="benchmark"
 
 musl_lint:
 	if [ `uname -s` = "Linux" ]; then \
