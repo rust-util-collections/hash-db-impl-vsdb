@@ -14,7 +14,7 @@ use vsdb::{basic::mapx_ord_rawkey::MapxOrdRawKey as Map, RawBytes, ValueEnDe};
 pub use keccak_hasher::KeccakHasher;
 
 const GB: usize = 1024 * 1024 * 1024;
-const DEFAULT_SIZE: CacheSize = CacheSize::new(GB);
+const DEFAULT_SIZ: usize = GB;
 
 pub type TrieBackend = VsBackend<KeccakHasher, Vec<u8>>;
 type SharedCache = SharedTrieCache<KeccakHasher>;
@@ -42,15 +42,9 @@ where
 {
     /// Create a new `VsBackend` from the default null key/data
     pub fn new(cache_size: Option<usize>) -> Self {
-        let cache = cache_size.map(|n| {
-            (
-                alt!(
-                    0 == n,
-                    SharedCache::new(DEFAULT_SIZE),
-                    SharedCache::new(CacheSize::new(n))
-                ),
-                n,
-            )
+        let cache = cache_size.map(|mut n| {
+            alt!(0 == n, n = DEFAULT_SIZ);
+            (SharedCache::new(CacheSize::new(n)), n)
         });
 
         VsBackend {
@@ -66,7 +60,10 @@ where
     }
 
     pub fn reset_cache(&mut self, size: Option<usize>) {
-        if let Some(n) = size {
+        if let Some(mut n) = size {
+            if 0 == n {
+                n = DEFAULT_SIZ;
+            }
             let siz = CacheSize::new(n);
             self.cache.replace((SharedCache::new(siz), n));
         } else {
