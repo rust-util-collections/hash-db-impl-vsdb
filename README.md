@@ -6,3 +6,11 @@
 # hash-db-impl-vsdb
 
 An implementation of [the `hash_db::HashDB` trait](https://crates.io/crates/hash-db) crate, based on the powerful crate of [`vsdb`](https://crates.io/crates/vsdb).
+
+### Gratitude
+
+Thanks to all the people who already contributed!
+
+<a href="https://github.com/rust-util-collections/hash-db-impl-vsdb/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=rust-util-collections/hash-db-impl-vsdb"/>
+</a>
